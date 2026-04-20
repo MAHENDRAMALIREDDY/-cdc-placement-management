@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../OneDrive/Desktop/CDC Placement-Management"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

@@ -23,6 +23,11 @@ const JobList = () => {
 
   const [appliedJobIds, setAppliedJobIds] = useState<number[]>([]);
 
+  const showMessage = (msg: string) => {
+    setMessage(msg);
+    setTimeout(() => setMessage(''), 4000);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,10 +53,10 @@ const JobList = () => {
     setMessage('');
     try {
       await API.post('/applications', { jobId });
-      setMessage(`Successfully applied for job #${jobId}`);
+      showMessage(`Successfully applied for job #${jobId}`);
       setAppliedJobIds(prev => [...prev, jobId]);
     } catch (err: any) {
-      setMessage(err.response?.data?.message || `Failed to apply for job #${jobId}`);
+      showMessage(err.response?.data?.message || `Failed to apply for job #${jobId}`);
     } finally {
       setApplyingId(null);
     }

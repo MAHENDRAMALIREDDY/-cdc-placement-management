@@ -56,6 +56,11 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'reports' | 'feedback'>('overview');
   const [message, setMessage] = useState('');
 
+  const showMessage = (msg: string) => {
+    setMessage(msg);
+    setTimeout(() => setMessage(''), 3000);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -78,7 +83,7 @@ const AdminDashboard = () => {
       setStudentReports(stRes.data || []);
       setFeedbacks(fbRes.data || []);
     } catch {
-      setMessage('Failed to load admin data.');
+      showMessage('Failed to load admin data.');
     } finally {
       setLoading(false);
     }
@@ -89,9 +94,9 @@ const AdminDashboard = () => {
     try {
       await API.delete(`/admin/users/${id}`);
       setUsers(prev => prev.filter(u => u.id !== id));
-      setMessage(`User "${email}" deleted.`);
+      showMessage(`User "${email}" deleted.`);
     } catch {
-      setMessage('Failed to delete user.');
+      showMessage('Failed to delete user.');
     }
   };
 

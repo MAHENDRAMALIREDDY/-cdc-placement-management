@@ -8,6 +8,7 @@ interface Application {
   company: string;
   appliedDate: string;
   status: string;
+  offerLetterFilename?: string;
 }
 
 const statusColors: Record<string, React.CSSProperties> = {
@@ -23,6 +24,12 @@ const MyApplications = () => {
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [downloadingId, setDownloadingId] = useState<number | null>(null);
+
+  const showError = (msg: string) => {
+    setError(msg);
+    setTimeout(() => setError(''), 5000);
+  };
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -30,13 +37,32 @@ const MyApplications = () => {
         const res = await API.get('/applications');
         setApplications(res.data || []);
       } catch {
-        setError('Failed to load applications.');
+        showError('Failed to load applications.');
       } finally {
         setLoading(false);
       }
     };
     fetchApplications();
   }, []);
+
+  const handleDownloadOffer = async (app: Application) => {
+    setDownloadingId(app.id);
+    try {
+      const res = await API.get(`/applications/${app.id}/offer`, { responseType: 'blob' });
+      const url = window.URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = app.offerLetterFilename || `offer_letter_${app.id}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch {
+      showError('Failed to download offer letter.');
+    } finally {
+      setDownloadingId(null);
+    }
+  };
 
   return (
     <>
@@ -76,9 +102,13 @@ const MyApplications = () => {
                   </td>
                   <td style={styles.td}>
                     {app.status === 'SELECTED' ? (
-                      <a href={`http://localhost:8080/applications/${app.id}/offer`} target="_blank" rel="noreferrer" style={{ color: '#27ae60', fontWeight: 'bold' }}>
-                        📄 Download Offer
-                      </a>
+                      <button
+                        onClick={() => handleDownloadOffer(app)}
+                        disabled={downloadingId === app.id}
+                        style={styles.downloadBtn}
+                      >
+                        {downloadingId === app.id ? '⏳ Downloading...' : '📄 Download Offer'}
+                      </button>
                     ) : <span style={{ color: '#ccc', fontSize: '0.8rem' }}>—</span>}
                   </td>
                 </tr>
@@ -104,6 +134,15 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '10px 14px',
     borderRadius: '4px',
     marginBottom: '12px',
+  },
+  downloadBtn: {
+    padding: '5px 12px',
+    backgroundColor: '#27ae60',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontWeight: 600,
   },
 };
 

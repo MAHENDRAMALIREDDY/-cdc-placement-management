@@ -59,8 +59,8 @@ const StudentDashboard = () => {
 
         <div style={styles.uploadSection}>
           <h3>My Resume</h3>
-          <p>Upload a PDF or DOCX resume for companies to view.</p>
-          <input type="file" accept=".pdf,.doc,.docx" onChange={handleUploadResume} />
+          <p>Upload a PDF, JPEG, or PNG resume (max 5 MB) for companies to view.</p>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={handleUploadResume} />
           {uploadMessage && <p style={styles.uploadMsg}>{uploadMessage}</p>}
         </div>
 

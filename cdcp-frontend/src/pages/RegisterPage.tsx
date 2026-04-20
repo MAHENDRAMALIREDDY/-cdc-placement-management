@@ -26,12 +26,22 @@ const RegisterPage = () => {
     e.preventDefault();
     setError('');
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address (e.g. user@example.com).');
+      return;
+    }
     if (form.password !== form.confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
-    if (form.password.length < 6) {
-      setError('Password must be at least 6 characters.');
+    const pwErrors: string[] = [];
+    if (form.password.length < 8)        pwErrors.push('at least 8 characters');
+    if (!/[A-Z]/.test(form.password))    pwErrors.push('1 uppercase letter');
+    if (!/[0-9]/.test(form.password))    pwErrors.push('1 number');
+    if (!/[^A-Za-z0-9]/.test(form.password)) pwErrors.push('1 symbol (e.g. @, #, !)');
+    if (pwErrors.length > 0) {
+      setError(`Password must contain: ${pwErrors.join(', ')}.`);
       return;
     }
 
@@ -112,7 +122,7 @@ const RegisterPage = () => {
             <label style={styles.label}>{role === 'company' ? 'Company Email *' : 'Email / Username *'}</label>
             <input
               name="email"
-              type="text"
+              type="email"
               value={form.email}
               onChange={handleChange}
               placeholder={role === 'company' ? 'hr@company.com' : 'your.email@university.edu'}
@@ -128,7 +138,7 @@ const RegisterPage = () => {
               type="password"
               value={form.password}
               onChange={handleChange}
-              placeholder="Minimum 6 characters"
+              placeholder="Min 8 chars, uppercase, number &amp; symbol"
               required
               style={styles.input}
             />

@@ -9,6 +9,9 @@ interface Job {
   company: string;
   location: string;
   salary: number;
+  requiredCgpa?: number;
+  maxBacklogs?: number;
+  applicationDeadline?: string;
 }
 
 const JobList = () => {
@@ -77,6 +80,8 @@ const JobList = () => {
                 <th style={styles.th}>Location</th>
                 <th style={styles.th}>Salary</th>
                 <th style={styles.th}>Description</th>
+                <th style={styles.th}>Eligibility</th>
+                <th style={styles.th}>Deadline</th>
                 <th style={styles.th}>Action</th>
               </tr>
             </thead>
@@ -89,6 +94,12 @@ const JobList = () => {
                   <td style={styles.td}>{job.location}</td>
                   <td style={styles.td}>{job.salary ? `₹${job.salary.toLocaleString()}` : 'N/A'}</td>
                   <td style={styles.td}>{job.description}</td>
+                  <td style={styles.td}>
+                    {job.requiredCgpa != null ? <div>Min CGPA: {job.requiredCgpa}</div> : null}
+                    {job.maxBacklogs != null ? <div>Max Backlogs: {job.maxBacklogs}</div> : null}
+                    {job.requiredCgpa == null && job.maxBacklogs == null ? 'No restriction' : null}
+                  </td>
+                  <td style={styles.td}>{job.applicationDeadline || '—'}</td>
                   <td style={styles.td}>
                     {appliedJobIds.includes(job.id) ? (
                       <button style={{ ...styles.applyBtn, backgroundColor: '#95a5a6', cursor: 'not-allowed' }} disabled>

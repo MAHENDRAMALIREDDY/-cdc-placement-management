@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           // If profile fetch fails (e.g. company role), fall back to email from token will be blank; that's fine
         });
     }
-  }, [token]);
+  }, [token, displayName]);
 
   const login = (newToken: string, newRole: string) => {
     localStorage.setItem('token', newToken);

@@ -1,0 +1,32 @@
+# ── Node / Frontend ──────────────────────────────────────
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+
+# ── Java / Maven / Backend ───────────────────────────────
+backend/backend/target/
+backend/backend/*.log
+*.class
+*.jar
+*.war
+
+# ── H2 Database files (local data, do not commit) ────────
+backend/backend/data/
+
+# ── IDE / OS ─────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ── Maven wrapper binary (keep scripts, skip binary) ─────
+!backend/backend/.mvn/wrapper/maven-wrapper.jar
+
+# ── Python scripts (optional tooling, not core app) ──────
+project/__pycache__/
+project/*.pyc

@@ -1,0 +1,671 @@
+
+========================================
+FILE: DFD FINAL.pdf
+========================================
+
+--- Page 1 ---
+ 
+LEVEL 0 
+ 
+ 
+ 
+LEVEL 1 
+
+--- Page 2 ---
+ 
+ 
+LEVEL 2 
+
+========================================
+FILE: SRS_Report_Template_2025_2026_AMSI (1).pdf
+========================================
+
+--- Page 1 ---
+Software Requirements Specification
+Career Development and Placement
+Management System
+A Software Engineering Project
+Prepared by
+Malireddy V R S D R B Mahendra, Shresth Tiwari, Gourav Varanasi
+Submitted to
+Department of Computer Science and Engineering
+Shiv Nadar University
+In partial fulfillment of the requirements for the course
+Software Engineering
+Under the guidance of
+Ms. Pooja Singh
+--- Page 2 ---
+Contents
+1 Introduction 3
+1.1 Purpose . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2 Project Scope and Product Features . . . . . . . . . . . . . . . . . . . . . 3
+1.2.1 Project Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.2 Project Scope . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.3 References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2 Overall Description 5
+2.1 Product Perspective . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.2 User Classes and Characteristics . . . . . . . . . . . . . . . . . . . . . . . 5
+2.3 Operating Environment . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.4 Design and Implementation Constraints . . . . . . . . . . . . . . . . . . . 6
+2.5 User Documentation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.6 Assumptions and Dependencies . . . . . . . . . . . . . . . . . . . . . . . 6
+3 System Features 6
+3.1 Student Registration and Profile Management . . . . . . . . . . . . . . . 6
+3.1.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 6
+3.1.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 6
+3.1.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 7
+3.2 Company Registration and Job Posting . . . . . . . . . . . . . . . . . . . 8
+3.2.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 8
+3.2.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 8
+3.2.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 8
+3.3 Job Application and Eligibility Verification . . . . . . . . . . . . . . . . . 9
+3.3.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 9
+3.3.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 9
+3.4 Recruitment Process Scheduling and Status Tracking . . . . . . . . . . . 10
+3.4.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 10
+3.4.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 10
+3.4.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 10
+1
+--- Page 3 ---
+3.5 Placement Reporting and Feedback . . . . . . . . . . . . . . . . . . . . . 11
+3.5.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 11
+3.5.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 11
+3.5.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 11
+3.6 Administrative Access and Usage . . . . . . . . . . . . . . . . . . . . . . 12
+3.6.1 Description and Priority . . . . . . . . . . . . . . . . . . . . . . . 12
+3.6.2 Stimulus/Response Sequences . . . . . . . . . . . . . . . . . . . . 12
+3.6.3 Functional Requirements . . . . . . . . . . . . . . . . . . . . . . . 12
+4 External Interface Requirements 12
+4.1 User Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+4.2 Hardware Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+4.3 Software Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+4.4 Communication Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+5 Other Nonfunctional Requirements 13
+5.1 Documentation Requirements . . . . . . . . . . . . . . . . . . . . . . . . 13
+5.2 Performance Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5.3 Safety Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5.4 Security Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5.5 Software Quality Attributes . . . . . . . . . . . . . . . . . . . . . . . . . 14
+Note regarding appendices 15
+2
+--- Page 4 ---
+1 Introduction
+1.1 Purpose
+This Software Requirements Specification (SRS) document describes the functional and
+non-functional requirements of theCareer Development and Placement Manage-
+ment System (CDPMS). The document is intended to be used by members of the
+project team involved in the design, development, testing, and verification of the system.
+Unless otherwise stated, all requirements specified in this document are considered
+high priority and are mandatory for the successful implementation of the system.
+1.2 Project Scope and Product Features
+1.2.1 Project Overview
+Universities conduct placement activities involving students, recruiters, and placement
+officers. At present, these activities are largely managed using emails and spreadsheets,
+which makes the process time-consuming, error-prone, and difficult to monitor.
+The Career Development and Placement Management System (CDPMS) aims to pro-
+vide a centralized, web-based solution to automate student registrations, company job
+postings, application processing, eligibility verification, interview scheduling, and place-
+ment status tracking.
+The system is designed as a web application to ensure platform independence and
+easy accessibility without requiring any local software installation. The system supports
+multiple levels of access to accommodate students, companies, and placement officers.
+1.2.2 Project Scope
+The CDPMS is divided into three major functional components: Student Management,
+Recruitment Management, and Placement Reporting.
+Student ManagementThe system allows students to register by providing personal
+details, academic records, skills, and resumes. Each student is assigned a unique place-
+ment ID. Students can apply for job openings, view the status of their applications, and
+download offer letters once made available.
+3
+--- Page 5 ---
+Recruitment ManagementCompanies can register and post job openings with de-
+tails such as eligibility criteria, salary package, application deadlines, and recruitment
+stages. The system automatically verifies student eligibility prior to job application.
+Placement officers schedule recruitment activities including written tests, group discus-
+sions, and interviews.
+Placement ReportingThe system provides reports such as company-wise placement
+statistics, student-wise placement details, and department-wise placement percentages.
+Feedback mechanisms for both students and companies are included to improve the place-
+ment process.
+1.3 References
+•University Placement Cell Guidelines
+•IEEE Software Requirements Specification (SRS) Standards
+4
+--- Page 6 ---
+2 Overall Description
+2.1 Product Perspective
+The Career Development and Placement Management System (CDPMS) is a standalone,
+web-based application designed to manage the complete placement lifecycle within a uni-
+versity. The system consolidates placement-related data into a single platform, improving
+efficiency, transparency, and accuracy.
+The system is modular in nature, allowing future enhancements such as advanced an-
+alytics, automated notifications, and integration with existing university systems. Role-
+based access control ensures that users interact with the system according to their re-
+sponsibilities.
+2.2 User Classes and Characteristics
+User Class Description
+Student Students register on the system, upload resumes,
+apply for job openings, view application statuses,
+and download offer letters.
+Company Company users create profiles, post job openings,
+define eligibility criteria, review student applica-
+tions, update recruitment status, and upload offer
+letters.
+Placement Officer Placement officers manage the overall placement
+process, verify eligibility, schedule recruitment
+stages, monitor candidate progress, and generate
+reports.
+2.3 Operating Environment
+OE-1: The system shall operate on modern web browsers such as Google Chrome, Mozilla
+Firefox, and Microsoft Edge.
+OE-2: The system shall be accessible on Windows and Linux operating systems.
+OE-3: The system shall use a relational database management system for data storage.
+5
+--- Page 7 ---
+2.4 Design and Implementation Constraints
+CO-1: The system shall be accessible through a web browser and an active internet
+connection.
+CO-2: The system shall implement secure role-based authentication and authoriza-
+tion.
+CO-3: The application shall follow standard web security practices.
+2.5 User Documentation
+UD-1: All end-user documentation shall be available in digital format and accessible
+through the application interface.
+UD-2: User guidelines shall be provided for students, companies, and placement offi-
+cers.
+2.6 Assumptions and Dependencies
+AS-1: Users are assumed to have valid institutional credentials.
+AS-2: Placement officers are responsible for maintaining accurate system data.
+DE-1: System availability depends on network connectivity and server uptime.
+3 System Features
+3.1 Student Registration and Profile Management
+3.1.1 Description and Priority
+This feature allows students to register on the Career Development and Placement Man-
+agement System by providing personal details, academic records, skills, and resume up-
+loads. Each registered student is assigned a unique placement ID. This feature is consid-
+ered high priority as it forms the foundation of the placement process.
+3.1.2 Stimulus/Response Sequences
+Stimulus:Student requests to register on the system.
+6
+--- Page 8 ---
+Response:The system displays a registration form, validates the entered details,
+stores the information in the database, and generates a unique placement ID for the
+student.
+Stimulus:Student requests to update profile details.
+Response:The system allows the student to edit and save updated profile informa-
+tion.
+3.1.3 Functional Requirements
+Feature ID Feature Name Description
+FR-S1 Student Registration The system shall allow students
+to register by providing personal
+and academic details.
+FR-S2 Resume Upload The system shall allow students
+to upload their resumes in sup-
+ported formats.
+FR-S3 Profile Update The system shall allow students
+to update their profile informa-
+tion.
+7
+--- Page 9 ---
+3.2 Company Registration and Job Posting
+3.2.1 Description and Priority
+This feature enables companies to register on the system and post job openings with
+details such as job title, eligibility criteria, salary package, application deadline, and
+recruitment process stages. This feature is of high priority to facilitate recruiter partici-
+pation.
+3.2.2 Stimulus/Response Sequences
+Stimulus:Company requests to register on the system.
+Response:The system displays a company registration form and stores the company
+profile upon successful submission.
+Stimulus:Company requests to post a job opening.
+Response:The system saves the job details and makes the opening available to
+eligible students.
+3.2.3 Functional Requirements
+FR-C1 Company Registration The system shall allow companies
+to create and manage their pro-
+files.
+FR-C2 Job Posting The system shall allow companies
+to post job openings with eligibil-
+ity criteria.
+FR-C3 Job Modification The system shall allow companies
+to update or close job openings.
+8
+--- Page 10 ---
+3.3 Job Application and Eligibility Verification
+3.3.1 Description and Priority
+This feature allows students to apply for job openings for which they meet the eligibility
+criteria. The system automatically verifies eligibility conditions such as minimum GPA
+and backlog requirements before permitting job applications.
+3.3.2 Stimulus/Response Sequences
+Stimulus:Student requests to apply for a job.
+Response:The system verifies eligibility criteria and submits the application if con-
+ditions are satisfied.
+3.3.3 Functional Requirements
+FR-J1 Job Application The system shall allow eligible
+students to apply for job openings
+online.
+FR-J2 Eligibility Verification The system shall verify student
+eligibility automatically before al-
+lowing applications.
+9
+--- Page 11 ---
+3.4 Recruitment Process Scheduling and Status Tracking
+3.4.1 Description and Priority
+This feature enables placement officers and companies to manage recruitment stages
+including written tests, group discussions, and interviews. The system tracks candidate
+progress at each stage and updates selection status accordingly.
+3.4.2 Stimulus/Response Sequences
+Stimulus:Placement officer schedules a recruitment stage.
+Response:The system updates the schedule and notifies relevant students.
+Stimulus:Company updates candidate status.
+Response:The system records the status change and reflects it in the student dash-
+board.
+3.4.3 Functional Requirements
+FR-R1 Schedule Recruitment The system shall allow schedul-
+ing of tests, interviews, and dis-
+cussions.
+FR-R2 Status Tracking The system shall track and up-
+date candidate status at each re-
+cruitment stage.
+10
+--- Page 12 ---
+3.5 Placement Reporting and Feedback
+3.5.1 Description and Priority
+This feature provides analytical reports and feedback mechanisms to evaluate the effec-
+tiveness of the placement process. Reports support decision-making for placement officers
+and university management.
+3.5.2 Stimulus/Response Sequences
+Stimulus:Placement officer requests placement statistics.
+Response:The system generates and displays placement reports.
+Stimulus:User submits feedback.
+Response:The system stores the feedback for analysis.
+3.5.3 Functional Requirements
+FR-REP1 Placement Reports The system shall generate
+company-wise, student-wise,
+and department-wise placement
+reports.
+FR-REP2 Feedback Collection The system shall collect feedback
+from students and companies.
+11
+--- Page 13 ---
+3.6 Administrative Access and Usage
+3.6.1 Description and Priority
+This feature grants placement officers administrative control over the system, including
+user management, process monitoring, and report generation. This is a high-priority
+feature essential for system governance.
+3.6.2 Stimulus/Response Sequences
+Stimulus:Placement officer requests administrative access.
+Response:The system provides access to administrative dashboards and controls.
+3.6.3 Functional Requirements
+FR-A1 User Management The system shall allow placement
+officers to manage user accounts
+and roles.
+FR-A2 System Monitoring The system shall allow adminis-
+trators to monitor system activi-
+ties.
+4 External Interface Requirements
+4.1 User Interfaces
+UI-1: The system shall provide a web-based graphical user interface that allows students,
+companies, and placement officers to access the application without requiring any local
+software installation.
+UI-2: The user interface shall support role-based dashboards tailored to different user
+categories including students, company representatives, and placement officers.
+UI-3: The system shall provide intuitive navigation and clear visual feedback for user
+actions such as job applications, interview scheduling, and status updates.
+12
+--- Page 14 ---
+4.2 Hardware Interfaces
+No specific hardware interfaces are required for the operation of the Career Development
+and Placement Management System. The system shall operate on standard computing
+devices such as desktops, laptops, and mobile devices with internet access.
+4.3 Software Interfaces
+SI-1: The system shall interface with a relational database management system to store
+and retrieve student profiles, company data, job postings, applications, and placement
+records.
+SI-2: The system shall support file storage mechanisms for uploading and managing
+student resumes and company offer letters.
+SI-3: The application shall be compatible with commonly used web browsers such as
+Google Chrome, Mozilla Firefox, and Microsoft Edge.
+4.4 Communication Interfaces
+CI-1: The system shall use HTTP and HTTPS protocols for communication between
+client browsers and the server.
+CI-2: Secure communication channels shall be used for transmitting sensitive data
+such as authentication credentials and personal information.
+5 Other Nonfunctional Requirements
+5.1 Documentation Requirements
+DR-1: All user-related documentation shall be provided in digital form and be accessible
+through the application interface.
+DR-2: System documentation shall clearly describe the functionalities available to
+students, companies, and placement officers.
+13
+--- Page 15 ---
+5.2 Performance Requirements
+PR-1: The system shall support concurrent access by multiple users without significant
+performance degradation.
+PR-2: The system shall provide acceptable response times for operations such as job
+application submission, status updates, and report generation.
+5.3 Safety Requirements
+SR-1: No safety-critical requirements have been identified for this system, as it does not
+interact with physical hardware components.
+5.4 Security Requirements
+SE-1: All users shall be authenticated before accessing the system.
+SE-2: Role-based access control shall be implemented to ensure users can access only
+authorized features.
+SE-3: Sensitive data such as personal details, academic records, and resumes shall be
+stored securely.
+SE-4: Secure communication protocols shall be used to prevent unauthorized data
+access during transmission.
+5.5 Software Quality Attributes
+ReliabilityThe system shall consistently perform its intended functions under normal
+operating conditions.
+UsabilityThe system shall provide an intuitive and user-friendly interface that mini-
+mizes the learning curve for all users.
+ScalabilityThe system shall be capable of handling an increase in the number of users
+and job postings without requiring significant architectural changes.
+MaintainabilityThe system shall be designed in a modular manner to allow easy
+maintenance and future enhancements.
+14
+--- Page 16 ---
+Note
+As instructed, data models and Data Flow Diagrams (DFDs) are to be submitted sep-
+arately in the subsequent submission. Hence, the current Software Requirements Spec-
+ification (SRS) document focuses only on system requirements, functional features, and
+overall system behavior.
+15
+========================================
+FILE: UCD (1).pdf
+========================================
+
+========================================
+FILE: Use_case_doc (1).pdf
+========================================
+
+--- Page 1 ---
+Use Case Specification Document
+Career Development and Placement Management
+System (CDPMS)
+--- Page 2 ---
+Contents
+1 Introduction 3
+2 Use Case Specifications 3
+2.1 UC-01: Student Registration . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2.2 UC-02: Login . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2.3 UC-03: Apply for Job . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.4 UC-04: Post Job Opening . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.5 UC-05: Eligibility Verification . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.6 UC-06: Update Recruitment Status . . . . . . . . . . . . . . . . . . . . . 5
+2.7 UC-07: Generate Placement Reports . . . . . . . . . . . . . . . . . . . . 5
+2.8 UC-08: Upload Offer Letter . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.9 UC-09: Manage User Accounts . . . . . . . . . . . . . . . . . . . . . . . 6
+2.10 UC-10: Submit Feedback . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2
+--- Page 3 ---
+1 Introduction
+This document provides detailed use case specifications for the Career Development and
+Placement Management System (CDPMS). The system automates student registration,
+company job postings, application processing, eligibility verification, recruitment schedul-
+ing, and placement reporting.
+2 Use Case Specifications
+2.1 UC-01: Student Registration
+Primary Actor:Student
+Description:Student registers by entering personal and academic details.
+Preconditions:
+•Student is not already registered.
+Postconditions:
+•Student account is created.
+•Unique Placement ID is generated.
+Main Flow:
+1. Student selects Register.
+2. System displays registration form.
+3. Student enters required details.
+4. System validates the data.
+5. System stores data in database.
+6. Placement ID is generated.
+7. Confirmation message is displayed.
+Alternate Flow:
+•If invalid data is entered, system displays error message.
+2.2 UC-02: Login
+Primary Actor:Student / Company / Placement Officer
+Description:User logs into the system using credentials.
+Preconditions:
+•User must be registered.
+Postconditions:
+•User is redirected to role-based dashboard.
+3
+--- Page 4 ---
+Main Flow:
+1. User enters username and password.
+2. System validates credentials.
+3. Access is granted.
+Alternate Flow:
+•If credentials are invalid, error message is displayed.
+2.3 UC-03: Apply for Job
+Primary Actor:Student
+Description:Student applies for an eligible job opening.
+Preconditions:
+•Student is logged in.
+•Job opening is available.
+Postconditions:
+•Application record is stored.
+Main Flow:
+1. Student views job openings.
+2. Student selects a job.
+3. System checks eligibility.
+4. If eligible, application is submitted.
+5. Confirmation message is displayed.
+Alternate Flow:
+•If not eligible, system displays rejection message.
+2.4 UC-04: Post Job Opening
+Primary Actor:Company
+Description:Company posts new job opportunity.
+Preconditions:
+•Company is logged in.
+Postconditions:
+•Job opening becomes visible to eligible students.
+Main Flow:
+1. Company selects Post Job.
+2. Enters job details and eligibility criteria.
+3. System validates input.
+4. Job details are stored in database.
+4
+--- Page 5 ---
+2.5 UC-05: Eligibility Verification
+Primary Actor:System
+Description:System verifies academic criteria before allowing application.
+Preconditions:
+•Student selects a job.
+Postconditions:
+•Eligibility decision generated.
+Main Flow:
+1. System fetches student academic details.
+2. System retrieves job eligibility criteria.
+3. Conditions are compared.
+4. Eligibility result is returned.
+2.6 UC-06: Update Recruitment Status
+Primary Actor:Company / Placement Officer
+Description:Update candidate selection status.
+Preconditions:
+•Candidate has applied for job.
+Postconditions:
+•Status is updated in system.
+Main Flow:
+1. Actor selects candidate.
+2. Updates status.
+3. System saves changes.
+2.7 UC-07: Generate Placement Reports
+Primary Actor:Placement Officer
+Description:Generate placement statistics and reports.
+Preconditions:
+•Officer is logged in.
+Postconditions:
+•Report is displayed or downloadable.
+Main Flow:
+1. Officer selects report type.
+2. System retrieves placement data.
+3. System generates report.
+4. Report is displayed.
+5
+--- Page 6 ---
+2.8 UC-08: Upload Offer Letter
+Primary Actor:Company
+Description:Upload official offer letter for selected student.
+Preconditions:
+•Candidate is marked as selected.
+Postconditions:
+•Offer letter is stored.
+•Student can download offer letter.
+Main Flow:
+1. Company selects candidate.
+2. Uploads document.
+3. System stores file.
+4. Student notified.
+2.9 UC-09: Manage User Accounts
+Primary Actor:Placement Officer
+Description:Admin manages system users and roles.
+Preconditions:
+•Admin is logged in.
+Postconditions:
+•User account updated/created/deactivated.
+Main Flow:
+1. Admin selects manage users.
+2. Performs required action.
+3. System updates database.
+2.10 UC-10: Submit Feedback
+Primary Actor:Student / Company
+Description:Users submit feedback about placement process.
+Preconditions:
+•User is logged in.
+Postconditions:
+•Feedback stored in database.
+6
+--- Page 7 ---
+Main Flow:
+1. User opens feedback form.
+2. Enters comments.
+3. Submits form.
+4. System stores feedback.
+7
+========================================
+FILE: class_diagram.pdf
+========================================
+
+========================================
+FILE: data_dictonary (1).pdf
+========================================
+
+--- Page 1 ---
+Data Dictionary
+Career Development and Placement Management System (CDPMS)
+Department of Computer Science and Engineering
+Shiv Nadar University
+Notation
+•+ : composition
+a,b : selection (either a or b)
+•(a) : optional
+•{a}* : repetition (zero or more)
+1 Data Stores
+D1USER ACCOUNTS ={user-account}*
+user-account = user-id + username + password-hash + user-role +
+account-status + created-at + (last-login-at)
+D2STUDENT RECORDS ={student}*
+student = placement-id + student-id + first-name + last-name + gender +
+date-of-birth + email + phone-number + department + cgpa +
+backlog-count + skills + resume-path + registration-date + student-status
+Note:
+•student-id represents the university roll number.
+•placement-id represents the unique system-generated identifier used internally for
+placement processes and application tracking.
+D3COMPANY RECORDS ={company}*
+company = company-id + company-name + hr-name + email + phone-number +
+company-address + company-status + registration-date + (updated-at)
+1
+--- Page 2 ---
+D4JOB RECORDS ={job}*
+job = job-id + company-id + job-title + job-description + required-cgpa +
+max-backlogs + required-skills + salary-package + job-location +
+application-deadline +{recruitment-stage}* + job-status + created-at
+recruitment-stage = stage-name + stage-order + stage-status
+Note:Recruitment stages are stored as repeating entries and logically maintained as
+a separate structure linked with job-id to allow flexible recruitment workflows.
+D5APPLICATIONS ={application}*
+application = application-id + placement-id + job-id + application-date +
+eligibility-status + application-stage + application-status + (remarks)
+Note:eligibility-status is automatically determined by the system using CGPA and
+backlog criteria defined in JOB RECORDS.
+D6PLACEMENT STATUS RECORDS ={placement-record}*
+placement-record = placement-record-id + placement-id + job-id + company-id +
+final-status + (offer-letter-path) + selection-date
+D7FEEDBACK RECORDS ={feedback}*
+feedback = feedback-id + feedback-giver-id + feedback-role + related-job-id +
+rating + feedback-text + feedback-date
+2 Entities
+•All Users = Student + Company + Admin
+•Registered Users = Student + Company
+•Admin = Placement Officer (CDC)
+3 Major Data Flows
+login-credentials = login-id + password
+authentication-status = auth-result + (error-message)
+session-access = session-id + user-id + user-role + session-expiry
+student-registration-data = personal-details + academic-details + skills + resume
+profile-update-request = placement-id + updated-profile-data
+profile-update-response = update-status
+company-registration-data = company-details
+job-posting-data = company-id + job-details
+2
+--- Page 3 ---
+job-application-request = placement-id + job-id
+eligibility-verification-data = placement-id + job-id + cgpa + backlog-count
+application-confirmation = application-id + eligibility-status
+schedule-request = admin-id + job-id + stage-details + schedule-date
+schedule-notification = placement-id + job-id + stage-name + schedule-date
+status-update-request = company-id + application-id + updated-status
+status-update-response = application-status
+report-request = admin-id + report-type + report-period
+report-output = report-type + period + report-generated-at + report-content
+feedback-submission = feedback-giver-id + feedback-role + feedback-text + rating
+feedback-confirmation = feedback-id + submission-status
+4 Primitive Data Items
+Identifiers (Unique Keys)
+user-id unique identifier (UUID) placement-id unique system-generated identifier (UUID)
+student-id university roll number company-id unique identifier (UUID) job-id unique iden-
+tifier (UUID) application-id unique identifier (UUID) placement-record-id unique identi-
+fier (UUID) feedback-id unique identifier (UUID)
+Authentication & Session Items
+login-id string username string password string (input only) password-hash string (stored
+value) session-id string
+Personal & Academic Items
+first-name string last-name string gender string date-of-birth date email string phone-
+number string department string cgpa decimal backlog-count number skills text resume-
+path string
+Job & Recruitment Items
+job-title string job-description text required-cgpa decimal max-backlogs number required-
+skills text salary-package decimal job-location string application-deadline date stage-
+name string stage-order number stage-status string
+Status & Result Items
+eligibility-status string application-stage string application-status string final-status
+string student-status string company-status string job-status string
+3
+--- Page 4 ---
+Date & Time Items
+registration-date date application-date date selection-date date created-at datetime
+updated-at datetime last-login-at datetime feedback-date date report-generated-at date-
+time
+Feedback Items
+rating number feedback-text text
+5 Enumerations (Selection)
+user-role = [ADMIN, STUDENT, COMPANY]
+account-status = [ACTIVE, INACTIVE]
+auth-result = [SUCCESS, FAILURE]
+eligibility-status = [ELIGIBLE, NOT ELIGIBLE]
+application-status = [APPLIED, SHORTLISTED, REJECTED, SELECTED]
+application-stage = [WRITTEN TEST, GROUP DISCUSSION, TECHNI-
+CAL INTERVIEW, HR INTERVIEW, FINAL RESULT]
+final-status = [SELECTED, REJECTED]
+job-status = [OPEN, CLOSED]
+student-status = [ACTIVE, PLACED, INACTIVE]
+company-status = [ACTIVE, INACTIVE]
+report-type = [COMPANY WISE, STUDENT WISE, DEPARTMENT WISE,
+OVERALL SUMMARY]
+feedback-role = [STUDENT, COMPANY]
+4
